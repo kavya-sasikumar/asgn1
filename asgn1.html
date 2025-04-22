@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Draw Points, Triangles, Circles</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 20px;
+      font-family: Arial, sans-serif;
+    }
+    canvas {
+      border: 1px solid black;
+    }
+    .controls {
+      margin-top: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      align-items: center;
+      justify-content: center;
+    }
+    label {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: 14px;
+    }
+    button {
+      padding: 6px 12px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body onload="main()">
+
+  <h3>Sketch of Image</h3>
+  <img src="smiley face-2.jpg" alt="Smiley face drawing" width="200">
+  <canvas id="webgl" width="400" height="400">
+    Please use a browser that supports "canvas"
+  </canvas>
+  <div class="controls">
+    <label>R: <input type="range" id="rSlider" min="0" max="255" value="255"></label>
+    <label>G: <input type="range" id="gSlider" min="0" max="255" value="0"></label>
+    <label>B: <input type="range" id="bSlider" min="0" max="255" value="0"></label>
+    <label>Size: <input type="range" id="sizeSlider" min="1" max="20" value="10"></label>
+    <label>Segments:
+      <input type="range" id="segmentsSlider" min="3" max="100" value="32">
+    </label>
+    <button onclick="clearCanvas()">Clear Canvas</button>
+    <button onclick="setDrawingMode('point')">Draw Point</button>
+    <button onclick="setDrawingMode('triangle')">Draw Triangle</button>
+    <button onclick="setDrawingMode('circle')">Draw Circle</button>
+    <button onclick="drawPicture()">Draw Picture</button>
+  </div>
+  <script src="./lib/webgl-utils.js"></script>
+  <script src="./lib/webgl-debug.js"></script>
+  <script src="./lib/cuon-utils.js"></script>
+  <script src="Triangle.js"></script>
+  <script src="Circle.js"></script>
+  <script src="ColoredPoints.js"></script>
+</body>
+</html>
